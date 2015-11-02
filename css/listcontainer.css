@@ -1,0 +1,157 @@
+.toolbar-buttons
+{
+  margin: 15px 0;
+}
+
+.product-content {
+  background: #f8f8f8;
+  border: 1px solid #e0e0e0;
+  padding: 15px 15px 20px;
+  margin-top: 3px;
+}
+.clearfix:before, .clearfix:after {
+  display: table;
+  content: " ";
+}
+.onsale, .onnew {
+  position: absolute;
+  top: -19px;
+  left: -16px;
+  width: 90px;
+  height: 90px;
+  background: url(http://delicatics.com/demos/zonda-html/images/product_lbl.png) no-repeat 0 0;
+  text-indent: -9999px;
+  z-index: 100;
+}
+.product-content img {
+  width: 100%;
+  height: auto;
+  position: relative;
+}
+img.back {
+  position: absolute !important;
+  left: 0;
+  top: 0;
+  visibility: hidden;
+  filter: alpha(opacity=0);
+  -webkit-opacity: 0;
+  -moz-opacity: 0;
+  -khtml-opacity: 0;
+  -o-opacity: 0;
+  opacity: 0;
+  -webkit-transition: all 300ms ease-in-out;
+  -moz-transition: all 300ms ease-in-out;
+  -o-transition: all 300ms ease-in-out;
+  transition: all 300ms ease-in-out;
+  -webkit-transition: all .2s ease;
+  -moz-transition: all .2s ease;
+  -o-transition: all .2s ease;
+  transition: all .2s ease;
+}
+.product-image-shadow {
+  content: '';
+  position: absolute;
+  -webkit-box-shadow: inset 0px 0px 50px 0px rgba(0,0,0,0.1);
+  -moz-box-shadow: inset 0px 0px 50px 0px rgba(0,0,0,0.1);
+  box-shadow: inset 0px 0px 50px 0px rgba(0,0,0,0.1);
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 99;
+}
+.quickview, .view-product {
+  content: '';
+  text-indent: -999em;
+  background: url(../images/product_view.png) no-repeat 50% -40px;
+  background-color: #888;
+  background-color: rgba(102, 102, 102, .75);
+  display: block;
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  top: 50%;
+  left: 36px;
+  margin: -20px 0 0 -50px;
+  cursor: pointer;
+  z-index: 1000;
+  filter: alpha(opacity=0);
+  -webkit-opacity: 0;
+  -moz-opacity: 0;
+  -khtml-opacity: 0;
+  -o-opacity: 0;
+  opacity: 0;
+  -moz-transition: all .2s ease-in-out;
+  -o-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+}
+.view-product {
+  background-position: 50% 0;
+  margin: -20px -50px 0;
+  left: auto;
+  right: 36px;
+}
+.product-content h3 {
+  color: #333;
+  font-family: 'Josefin Sans', Arial, 'Helvetica Neue', Helvetica, sans-serif;
+  font-size: 16px;
+  margin: 10px 0;
+}
+.product-content .price {
+  display: block;
+  font-size: 14px;
+  line-height: 15px;
+  margin-bottom: 10px;
+}
+.product-content  del {
+  color: #333;
+}
+del .amount {
+  color: #abaaaa !important;
+}
+.price, .amount {
+  color: #66b1b8;
+  font-family: 'Carme', Arial, 'Helvetica Neue', Helvetica, sans-serif;
+}
+.product-image
+{
+  position: relative;
+}
+.compare, .add_to_wishlist {
+  content: '';
+  text-indent: -999em;
+  background-color: #dadada;
+  background-repeat: no-repeat;
+  background-position: 50% -50px;
+  display: inline-block;
+  width: 33px;
+  height: 33px;
+  padding: 0;
+  margin: 0 3px;
+}
+.compare {
+  display: inline-block;
+  background-image: url(http://delicatics.com/demos/zonda-html/images/icons/icon_compare.png);
+}
+.add_to_wishlist {
+  background-image: url(http://delicatics.com/demos/zonda-html/images/icons/icon_wishlist.png);
+}
+
+.add_to_wishlist:hover,
+.compare:hover{
+  background-position: center -80px;
+  background-color: #dedede;
+  -moz-transition: color 450ms ease-in-out, background-color 150ms ease-in-out, opacity 600ms ease-in-out, background-position 300ms ease-in-out;
+  -webkit-transition: color 450ms ease-in-out, background-color 150ms ease-in-out, opacity 600ms ease-in-out, background-position 300ms ease-in-out;
+  -o-transition: color 450ms ease-in-out, background-color 150ms ease-in-out, opacity 600ms ease-in-out, background-position 300ms ease-in-out;
+  transition: color 450ms ease-in-out, background-color 150ms ease-in-out, opacity 600ms ease-in-out, background-position 300ms ease-in-out;
+}
+.selected .product-content
+{
+  border: 1px solid #2BA6CB;
+}
+.DD-customitem.DD-customitem
+{
+  -webkit-user-select: none;
+  margin:33px;
+}

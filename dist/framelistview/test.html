@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<style type="text/css">
+
+.custom--48prav--content
+{
+	height: 200px;
+	position: relative;
+	max-width: 600px;
+	margin:0 auto; 
+	border: 1px solid lightgray;
+	margin-bottom: 20px;
+}
+.custom--48prav--thumb-img
+{
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  float: left;
+  margin-right: 20px;
+}
+
+.custom--48prav--button-block
+{
+	position: absolute;
+	bottom: 10px;
+	left: 225px;
+}
+.custom--48prav-option
+{
+	white-space: nowrap;
+}
+.option-desc
+{
+	white-space: nowrap;
+    overflow: hidden;
+    padding: 5px;
+    text-overflow: ellipsis;
+    display: block;
+}
+.option-name
+{
+	float: left;
+  	padding: 5px;
+}
+.custom--48prav-checkbox
+{
+	position: absolute;
+	top: 15px;
+	left: 15px;
+}
+</style>
+
+<!-- <div class="custom--48prav--content">
+	<div class="custom--48prav--thumb">
+		<img class="custom--48prav--thumb-img" src="https://m2.behance.net/rendition/pm/25805015/1400/e4b7279177d6e14e856f22c4d542bf1a.png" />
+		<input type="checkbox" class="custom--48prav-checkbox">
+	</div>
+	<div class="custom-48prav--item-content">
+		<h3>Роман Щербинин</h3>				
+		<div class="custom--48prav--description">				
+			<div class="custom--48prav-option">
+				<span class="option-name">Специальность:</span>
+				<span class="option-desc">Юрист</span>
+			</div>
+			<div class="custom--48prav-option">
+				<span class="option-name">Ст. метро:</span>
+				<span class="option-desc">Чкаловская</span>
+			</div>
+			<div class="custom--48prav-option">
+				<span class="option-name">Специализация</span>
+				<span class="option-desc">Общее право, семейное право Общее право, семейное право Общее право, семейное право Общее право, семейное право</span>
+			</div>
+		</div>
+	</div>
+	<div class="custom--48prav--button-block">
+		<button class="button1">Подробнее</button>
+		<button class="button2">Запись на консультацию</button>
+	</div>
+</div> -->
+
+<script src='../../../closure/closure/goog/base.js'></script>
+<script src='../../deps.js'></script>
+<script>
+goog.require('DD.ui.FrameListView');
+
+window.onload = function (argument)
+{
+	var tmpl;
+	var nameField = ['Роман Щербинин 1', 'Роман Щербинин 2', 'Роман Щербинин 3'];
+	var avatarField = ['https://d13yacurqjgara.cloudfront.net/users/511174/screenshots/2155046/monkey_02.gif', 'https://d13yacurqjgara.cloudfront.net/users/634508/screenshots/2158752/sportyslob.gif', 'https://d13yacurqjgara.cloudfront.net/users/713952/screenshots/2158141/selleckhair.gif']
+	var items = [];
+    for (var i = 0; i < 3; i++)
+    {
+		tmpl = '<div class="custom--48prav--content">\
+			<div class="custom--48prav--thumb">\
+				<img class="custom--48prav--thumb-img" src="'+ avatarField[i] + '" />\
+				<input type="checkbox" class="custom--48prav-checkbox">\
+			</div>\
+			<div class="custom-48prav--item-content">\
+				<h3>' + nameField[i] + '</h3>\
+				<div class="custom--48prav--description">\
+					<div class="custom--48prav-option">\
+						<span class="option-name">Специальность:</span>\
+						<span class="option-desc">Юрист</span>\
+					</div>\
+					<div class="custom--48prav-option">\
+						<span class="option-name">Ст. метро:</span>\
+						<span class="option-desc">Чкаловская</span>\
+					</div>\
+					<div class="custom--48prav-option">\
+						<span class="option-name">Специализация</span>\
+						<span class="option-desc">Общее право, семейное право Общее право, семейное право Общее право, семейное право Общее право, семейное право</span>\
+					</div>\
+				</div>\
+			</div>\
+			<div class="custom--48prav--button-block">\
+				<button class="button1">Подробнее '+ [i] +'</button>\
+				<button class="button2">Запись на консультацию '+ [i] +'</button>\
+			</div>\
+		</div>';
+
+        items.push({
+            template        : tmpl,
+            templateAction  : [
+            {
+                element   : '.button1',
+                listen    : click1
+            },
+            {
+                element   : '.button2',
+                listen    : click1
+            },
+            {
+            	element   : '.custom--48prav-checkbox',
+            	listen 	  : setCheckedItem
+            }]
+        })
+    };
+
+	var custom = new DD.ui.FrameListView(
+	{
+		'itemsFocus'    : 'checked',
+		'viewType'      : DD.ui.ListView.ViewType.CUSTOM
+	});
+
+	custom.render();
+	custom.addItems(items);
+
+	function click1 (e)
+	{
+		alert(e._target.innerHTML)
+	}
+
+	function setCheckedItem (e)
+	{
+		e.target.setChecked(!e.target.isChecked());
+	}
+};
+</script>
+</body>
+</html>

@@ -1,0 +1,185 @@
+.show-updated
+{
+  -webkit-transition: opacity .5s ease;
+       -o-transition: opacity .5s ease;
+          transition: opacity .5s ease;
+}
+.DD-item
+{
+  -webkit-tap-highlight-color: transparent;
+}
+
+.DD-list
+{
+  position: relative;
+}
+  .DD-item,
+  .DD-customitem
+  {
+    position: relative;
+    vertical-align: top;
+    display: inline-block;
+    white-space: nowrap;
+    cursor: pointer;
+    text-align: center;
+
+    margin: 0.5rem 0.5rem;
+
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+  }
+    .DD-item figure
+    {
+      padding-bottom: 0.9375rem;
+      margin: 0;
+    }
+    .DD-item figcaption
+    {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      text-align: left;
+
+      padding: 0;
+      line-height: 1.875rem;
+      height: 1.875rem;
+      width: 100%;
+    }
+
+.DD-listviewitem .DD-thumb
+{
+  -webkit-align-self: center;
+          align-self: center;
+}
+.DD-thumb
+{
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+
+  width: 100%;
+  box-shadow: 0 0 0 3px #fff, 0 0 5px 3px rgba(0,0,0,.5);
+  border-radius: 4px;
+}
+  .selected .DD-thumb
+  {
+    box-shadow: 0 0 0 3px #2BA6CB, 0 0 5px 3px #2BA6CB;
+  }
+    .DD-thumb img
+    {
+      width: 100%;
+      border-radius: 4px;
+    }
+    .DD-thumb canvas
+    {
+      width: 100%;
+    }
+
+.DD-checker
+{
+  cursor: pointer;
+  position: absolute;
+
+  width: 1.5rem;
+  line-height: 1.5rem;
+  padding: 0.9375rem;
+  left: 0;
+  top: 0;
+
+  -webkit-tap-highlight-color: transparent;
+}
+  .DD-checker:before
+  {
+    content: '';
+    display: block;
+  
+    background: url(../img/checkbox.svg) 0 50% no-repeat;
+
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+  .checked .DD-checker:before
+  {
+    background-position: -34px 50%;
+  }
+  .DD-checker input
+  {
+    display: none;
+  }
+
+figcaption[contenteditable="true"]
+{
+  border: 1px solid red;
+}
+
+.DD-listviewitem
+{
+  margin: .5rem;
+  display: -webkit-flex;
+  display: flex;
+}
+  .DD-listviewitem section
+  {
+    vertical-align: top;
+
+    padding-left: 20px;
+    -webkit-flex: 1 0;
+            flex: 1 0;
+  }
+  .DD-property
+  {
+    display: inline-block;
+    white-space: nowrap;
+
+    margin-right: 15px;
+  }
+    .DD-property span
+    {
+      display: inline-block;
+      overflow: hidden;
+      text-overflow:ellipsis;
+    }
+    .DD-property-key,
+    .DD-property-colon
+    {
+      font-weight: bold;
+    }
+    .DD-property-colon
+    {
+      padding: 0 5px;
+    }
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2) and (max-width: 960px), only screen and (min--moz-device-pixel-ratio: 2) and (max-width: 960px), only screen and (-o-min-device-pixel-ratio: 2 / 1) and (max-width: 960px), only screen and (min-resolution: 192dpi) and (max-width: 960px), only screen and (min-resolution: 2dppx) and (max-width: 960px) {
+  .DD-checker
+  {
+    padding: 0.46875rem;
+  }
+
+  .DD-thumb
+  {
+    margin-top: 0.15625rem;
+  }
+    .DD-thumb .DD-filetype
+    {
+      bottom: 0.46875em;
+    }
+
+  .DD-item-abort
+  {
+    margin: 0.46875rem;
+  }
+
+  .DD-item figure
+  {
+    padding-bottom: 0.46875rem;
+  }
+}
+.DD-list .disabled
+{
+  opacity: .5;
+  cursor: default;
+}
+  .disabled .DD-checker
+  {
+    display: none;
+  }

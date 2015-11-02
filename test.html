@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Untitled#1</title>
+	<meta content="width=device-width,initial-scale=1" name="viewport">
+	<link rel="stylesheet" href="css/listcontainer.css">
+    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="css/framelistview.css"/>
+</head>
+<body>
+	<div class="container" id="demo-listview">
+	</div>
+	<script type="text/javascript" src="../bower_components/closurelibrary/closure/goog/base.js"></script>
+	<script type="text/javascript" src="deps.js"></script>
+	<script src='../bower_components/hammerjs/hammer.js'></script>
+	<script type="text/javascript">
+	goog.require('DD.ui.FrameListView');
+
+		window.onload = function()
+		{
+			var FrameListView = null;
+			var startItemsCount = 50;
+
+			initListView();
+
+			function initListView()
+			{
+			    var container = document.getElementById('demo-listview');
+			    if (!container)
+			        return false;
+
+			    var items = [];
+			    for (var i = 0; i < startItemsCount; i++)
+			    {
+			        items.push({
+			            title       : 'Text title ' + (i + 1),
+			            info        :
+			            {
+			                'Author'                : 'Franz Grillparzer',
+			                'Size'                  : '182mb',
+			                'Date'                  : '15.01.1791',
+			                'Type'                  : 'Dramatist',
+			                'Last opened by me'     : '19.05.2015',
+			                'Orientation'           : 'Portrait',
+			                'Pages'                 : '1785',
+			                'Page numbering'        : 'Off',
+			                'Page sizes'            : 'A4',
+			                'Template'              : 'Common contact',
+			                'Tags'                  : 'Vienna, Austria, Grillparzer, Gervinusm, Dramatist, Austrian'
+			            },
+			            thumb       : 'img/' + (Math.floor(Math.random() * (10 - 1) + 1)) + '.png',
+			            options     : 
+			            {
+			                propValueRatio  : 2/3
+			            }
+			        })
+			    };
+			    FrameListView = new DD.ui.FrameListView(
+			    {
+			        'itemsFocus'    : 'checked',
+			        'thumbSize'     : '100',
+			        'viewType'      : DD.ui.ListView.ViewType.BAR
+			    });
+			    FrameListView.render(container);
+			    FrameListView.addItems(items);
+
+			    goog.events.listen(FrameListView, DD.ui.InputEditor.EventType.STARTEDIT, function(event)
+			    {
+			        var scrollContainer = document.querySelector('.scrollWrapper'),
+			            listContainer = document.getElementById('demo-listview'),
+			            originalEvent = event;
+			        
+			        goog.events.listenOnce(listContainer, goog.events.EventType.SCROLL, function()
+			        {
+			            originalEvent.editor.makeUneditable();
+			        }, false, this);
+			        goog.events.listenOnce(scrollContainer, goog.events.EventType.SCROLL, function()
+			        {
+			            originalEvent.editor.makeUneditable();
+			        }, false, this);
+			        
+			    }, false, this);
+
+			};
+
+		};
+	</script>
+</body>
+</html>

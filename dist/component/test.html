@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang='ru'>
+<head>
+  <meta charset='utf-8'>
+  <script src='../../../closure/closure/goog/base.js'></script>
+  <script src='../../../closure/closure/goog/deps.js'></script>
+  <script src='../../deps.js'></script>
+  <script>
+    goog.require('DD.ui.Component');
+  </script>
+</head>
+<body>
+<strong>В консоли не должно быть ошибок.</strong>
+<hr>
+
+<script>
+
+var A = new DD.ui.Component();
+A.render(document.body);
+var B = A.getContentElement();
+B.innerHTML = 'Тест пройден';
+setTimeout(A.dispose.bind(A), 1000);
+
+</script>
+</body>
+</html>
